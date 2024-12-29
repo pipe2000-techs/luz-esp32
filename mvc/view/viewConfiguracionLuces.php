@@ -21,7 +21,7 @@
 
               <center>
                 <div class="card-body">
-                  <h5 class="card-title">Listado luces</h5>
+                  <h5 class="card-title">Listado luceshd</h5>
 
                   <div class="d-flex align-items-center">
                     
