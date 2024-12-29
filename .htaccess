@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+#colocar el icono en todas las rutas de la pagina
+Redirect 301 /favicon.ico https://esp32.jgcasociados.com.co/img/icon.png
