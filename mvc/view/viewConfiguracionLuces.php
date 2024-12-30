@@ -16,7 +16,7 @@
           <div class="row">
 
             <!-- Sales Card -->
-            <div class="col-xxl-6 col-md-5">
+            <div class="col-xxl-7 col-md-5">
               <div class="card info-card sales-card">
 
               <center>
