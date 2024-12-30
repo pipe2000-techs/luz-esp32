@@ -1,5 +1,5 @@
 <?php 
-
+error_reporting(0);
   //include("./mvc/model/ModelMenu.php");
   //include("./mvc/controller/ConMenu.php");
 

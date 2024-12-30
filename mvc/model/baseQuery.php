@@ -15,8 +15,8 @@
 
     //datos para conectarnos a la base de datos
     define("servidor", "localhost");
-	define("usuario", "u484054490_root");
-	define("contraseña", "+g@a?dkifC2");
+	define("usuario", "root");
+	define("contraseña", "");
 	define("bd", "u484054490_edp32");
 
     //zona horaria
