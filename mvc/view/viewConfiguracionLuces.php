@@ -35,6 +35,7 @@
                             <th class="align-middle" scope="col">Estado</th>
                             <th class="align-middle" scope="col">Fecha Modificacion</th>
                             <th class="align-middle" scope="col">Hora Modificacion</th>
+                            <th class="align-middle" scope="col">Progrmada</th>
                             <th class="align-middle" scope="col">Acciones</th>
                           </tr>
                         </thead>
@@ -50,6 +51,7 @@
                               </td>
                               <td class="align-middle" x-text="bases.fechaestadoluz"></td>
                               <td class="align-middle" x-text="bases.horaestadoluz"></td>
+                              <td class="align-middle" x-text="bases.descripcionluz"></td>
                               <td class="align-middle">
                                 <template x-if="bases.estadoluz == 1">
                                   <button @click="apagarLuz(bases)" type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Desactivar Base"><i class="bi bi-lightbulb-off"></i></button>
