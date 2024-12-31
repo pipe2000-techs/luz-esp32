@@ -101,7 +101,7 @@
             $consult = $this->cosultInput($consulta,[$horaActual, $horaActual]);
 
             $consulta2 = "UPDATE  luces  set estadoluz = 0 WHERE progrmarLuz = 'true' and horafin < ? ";
-            $consult2 = $this->cosultInput($consulta,[$horaActual]);
+            $consult2 = $this->cosultInput($consulta2,[$horaActual]);
          
 
         }
