@@ -9,7 +9,11 @@
         public $estado;
         public $token;
         public $idluz;
-        
+
+        public $estadoPorgra;
+        public $horainicio;
+        public $horafin;
+
 
         ////////////////////////////////////////////////////////////
 
@@ -53,13 +57,49 @@
 
         public function consultarLuces(){
 
-            $consulta = "SELECT l.codluz, l.nombreluz, l.descripcionluz, l.estadoluz, l.fechaestadoluz, l.horaestadoluz, el.descripcion as descestado
+            $consulta = "SELECT l.codluz, l.nombreluz, l.descripcionluz, l.estadoluz, l.fechaestadoluz, l.horaestadoluz, el.descripcion as descestado, l.progrmarLuz, l.horainicio, l.horafin
                          FROM luces as l
                          LEFT JOIN estadoluz as el
                          ON l.estadoluz = el.id;";
 
             $consult = $this->cosultOutput($consulta,null);
             return $consult;
+
+        }
+
+        public function cambiarEstadoProgrma(){
+
+            $consulta = "UPDATE  luces  set progrmarLuz = ?  WHERE codluz = ?";
+            $consult = $this->cosultInput($consulta,[$this->estadoPorgra, $this->idluz]);
+
+            if ($consult) {
+                return 1;
+            }else{
+                return 0;
+            }
+
+        }
+
+        public function actulizarProgramacion(){
+
+            $consulta = "UPDATE  luces  set horainicio = ?, horafin = ? WHERE codluz = ?";
+            $consult = $this->cosultInput($consulta,[$this->horainicio, $this->horafin, $this->idluz]);
+
+            if ($consult) {
+                return 1;
+            }else{
+                return 0;
+            }
+
+        }
+
+        public function validarPorgramacion(){
+
+            $horaActual = date("H:i");
+                    
+            $consulta = "UPDATE  luces  set estadoluz = 1 WHERE progrmarLuz = 'true' and (horainicio <= ? and horafin >= ?)";
+            $consult = $this->cosultInput($consulta,[$horaActual, $horaActual]);
+         
 
         }
 
