@@ -14,10 +14,18 @@
     define("cod","aes-128-ecb");
 
     //datos para conectarnos a la base de datos
-    define("servidor", "localhost");
-	define("usuario", "root");
-	define("contraseña", "");
-	define("bd", "u484054490_edp32");
+    /// true para la bd de produccion y false para la bd de pruebas 
+    if(true){
+        define("servidor", "localhost");
+        define("usuario", "u484054490_root");
+        define("contraseña", "+g@a?dkifC2");
+        define("bd", "u484054490_edp32");
+    }else{
+        define("servidor", "localhost");
+        define("usuario", "root");
+        define("contraseña", "");
+        define("bd", "u484054490_edp32");
+    }
 
     //zona horaria
     date_default_timezone_set("America/Bogota");
