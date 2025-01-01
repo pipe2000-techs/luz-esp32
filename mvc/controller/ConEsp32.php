@@ -49,6 +49,8 @@
 
     if(isset($_GET['dataLuces'])){
 
+        $luz->validarPorgramacion();
+
         $datosDevolver = $luz->consultarLuces();
 
         echo json_encode($datosDevolver);
