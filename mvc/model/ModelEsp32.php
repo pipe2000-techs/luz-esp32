@@ -97,7 +97,7 @@
 
             $horaActual = date("H:i");
                     
-            $consulta = "UPDATE  luces  set estadoluz = 1 WHERE progrmarLuz = 'true' and (horainicio <= ? and horafin >= ?)";
+            $consulta = "UPDATE  luces  set estadoluz = 1 WHERE progrmarLuz = 'true' and  (horainicio < ? and horafin > ?)";
             $consult = $this->cosultInput($consulta,[$horaActual, $horaActual]);
 
             $consulta2 = "UPDATE  luces  set estadoluz = 0 WHERE progrmarLuz = 'true' and (horainicio > ? and horafin < ?) ";
