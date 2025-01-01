@@ -100,8 +100,8 @@
             $consulta = "UPDATE  luces  set estadoluz = 1 WHERE progrmarLuz = 'true' and (horainicio <= ? and horafin >= ?)";
             $consult = $this->cosultInput($consulta,[$horaActual, $horaActual]);
 
-            $consulta2 = "UPDATE  luces  set estadoluz = 0 WHERE progrmarLuz = 'true' and horafin < ? ";
-            $consult2 = $this->cosultInput($consulta2,[$horaActual]);
+            $consulta2 = "UPDATE  luces  set estadoluz = 0 WHERE progrmarLuz = 'true' and (horainicio > ? and horafin < ?) ";
+            $consult2 = $this->cosultInput($consulta2,[$horaActual, $horaActual]);
          
 
         }
