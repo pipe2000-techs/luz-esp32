@@ -42,40 +42,42 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <template x-for="bases in datosConfiguracion" :key="bases.codluz">
-                            <tr style="text-align: center;">
-                              <th class="align-middle" scope="row" x-text="bases.codluz"></th>
-                              <td class="align-middle" x-text="bases.nombreluz"></td>
-                              <td class="align-middle" x-text="bases.descripcionluz"></td>
+                          <template x-if="datosConfiguracion != ''">
+                            <template x-for="bases in datosConfiguracion" :key="bases.codluz">
+                              <tr style="text-align: center;">
+                                <th class="align-middle" scope="row" x-text="bases.codluz"></th>
+                                <td class="align-middle" x-text="bases.nombreluz"></td>
+                                <td class="align-middle" x-text="bases.descripcionluz"></td>
 
-                              <td class="align-middle">
-                                <span class="badge bg-success" :class="{ 'd-none' : bases.estadoluz == 0 }" x-text="bases.descestado"></span>
-                                <span class="badge bg-danger" :class="{ 'd-none' : bases.estadoluz == 1 }" x-text="bases.descestado"></span>
-                              </td>
+                                <td class="align-middle">
+                                  <span class="badge bg-success" :class="{ 'd-none' : bases.estadoluz == 0 }" x-text="bases.descestado"></span>
+                                  <span class="badge bg-danger" :class="{ 'd-none' : bases.estadoluz == 1 }" x-text="bases.descestado"></span>
+                                </td>
 
-                              <td class="align-middle" x-text="bases.fechaestadoluz"></td>
-                              <td class="align-middle" x-text="bases.horaestadoluz"></td>
-                              
-                              <td class="align-middle">
-                                <template x-if="bases.estadoluz == 1">
-                                  <button @click="apagarLuz(bases)" type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Desactivar Base" :disabled="(bases.progrmarLuz === 'false') ? false : true"><i class="bi bi-lightbulb-off"></i></button>
-                                </template>
-                                <template x-if="bases.estadoluz == 0">
-                                  <button @click="encenderLuz(bases)" type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Activar Base" :disabled="(bases.progrmarLuz === 'false') ? false : true"><i class="bi bi-lightbulb-fill"></i></button>
-                                </template>
-                              </td>
+                                <td class="align-middle" x-text="bases.fechaestadoluz"></td>
+                                <td class="align-middle" x-text="bases.horaestadoluz"></td>
+                                
+                                <td class="align-middle">
+                                  <template x-if="bases.estadoluz == 1">
+                                    <button @click="apagarLuz(bases)" type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Desactivar Base" :disabled="(bases.progrmarLuz === 'false') ? false : true"><i class="bi bi-lightbulb-off"></i></button>
+                                  </template>
+                                  <template x-if="bases.estadoluz == 0">
+                                    <button @click="encenderLuz(bases)" type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Activar Base" :disabled="(bases.progrmarLuz === 'false') ? false : true"><i class="bi bi-lightbulb-fill"></i></button>
+                                  </template>
+                                </td>
 
-                              <td class="align-middle">
-                                <div class="form-switch">
-                                  <input class="form-check-input" type="checkbox" @click="cambiarEstadoProgrma(bases)" :checked="(bases.progrmarLuz === 'true') ? true : false" >
-                                </div>
-                              </td>
+                                <td class="align-middle">
+                                  <div class="form-switch">
+                                    <input class="form-check-input" type="checkbox" @click="cambiarEstadoProgrma(bases)" :checked="(bases.progrmarLuz === 'true') ? true : false" >
+                                  </div>
+                                </td>
 
-                              <td class="align-middle" x-text="bases.horainicio+' - '+bases.horafin"></td>
-                              <td class="align-middle">
-                                <button type="button" @click="datosHorasProgramadas(bases)" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalContrato" :disabled="(bases.progrmarLuz === 'true') ? false : true"><i class="bi bi-folder"></i></button>
-                              </td>
-                            </tr>
+                                <td class="align-middle" x-text="bases.horainicio+' - '+bases.horafin"></td>
+                                <td class="align-middle">
+                                  <button type="button" @click="datosHorasProgramadas(bases)" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalContrato" :disabled="(bases.progrmarLuz === 'true') ? false : true"><i class="bi bi-folder"></i></button>
+                                </td>
+                              </tr>
+                            </template>
                           </template>
 
                           <template x-if="datosConfiguracion == ''">
