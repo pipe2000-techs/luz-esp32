@@ -82,7 +82,7 @@
 
                           <template x-if="datosConfiguracion == ''">
                             <tr>
-                              <td colspan="7" class="text-center">
+                              <td colspan="10" class="text-center">
                                 <div class="spinner-border text-info" role="status">
                                   <span class="visually-hidden">Loading...</span>
                                 </div>
