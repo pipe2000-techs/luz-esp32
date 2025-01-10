@@ -25,9 +25,9 @@
     }else{
 
         define("servidor", "localhost");
-        define("usuario", "u484054490_root");
-        define("contraseña", "+g@a?dkifC2");
-        define("bd", "u484054490_edp32");
+        define("usuario", "xxxx");
+        define("contraseña", "xxxx");
+        define("bd", "xxx");
         
     }
 
